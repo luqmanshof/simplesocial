@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if user.is_authenticated %}
+<h1>Luqman welcomes you to Star Social!</h1>
+{% else %}
+<h1>Welcome to Luqman's Star Social Site!</h1>
+<p><em>Start by signing up ....</em></p>
+{% endif %}
+{% endblock %}
