@@ -3,7 +3,8 @@ from django.db import models
 from django.utils.text import slugify
 
 from django.contrib.auth import get_user_model
-from django.core.urlresolvers import reverse
+# from django.core.urlresolvers import reverse
+from django.urls import reverse
 # import misaka
 # Create your models here.
 
@@ -36,8 +37,8 @@ class Group(models.Model):
 
 
 class GroupMember(models.Model):
-    group = models.ForeignKey(Group, related_name="memberships")
-    user = models.ForeignKey(User, related_name='user_groups')
+    group = models.ForeignKey(Group, related_name="memberships",on_delete=models.CASCADE)
+    user = models.ForeignKey(User, related_name='user_groups',on_delete=models.CASCADE)
 
     def __str__(self):
         return self.user.username
